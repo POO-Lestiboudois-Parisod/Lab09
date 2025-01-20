@@ -1,0 +1,65 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam roundCorner 0
+skinparam linetype ortho
+
+title Diagramme UML pour DessinDisqueApp
+
+class DessinDisqueApp {
+    +main(String[] args) : void
+}
+
+class DessinDisqueFrame {
+    -dessinPanel : DessinPanel
+    +DessinDisqueFrame()
+    ..UI Components..
+    -buttonPanel : JPanel
+    -clearButton : JButton
+    -quitButton : JButton
+}
+
+class DessinPanel {
+    -disques : LinkedList<Disque>
+    -disqueTemporaire : Disque
+    -disqueDeplace : Disque
+    -lastMousePosition : Point
+    +DessinPanel()
+    +paintComponent(Graphics g) : void
+    +clear() : void
+    +mousePressed(MouseEvent e) : void
+    +mouseReleased(MouseEvent e) : void
+    +mouseDragged(MouseEvent e) : void
+}
+
+class Disque {
+    -centre : Point
+    -rayon : int
+    -couleurIndex : int
+    +Disque(Point centre, int rayon, int couleurIndex)
+    +getCentre() : Point
+    +setRayon(int rayon) : void
+    +deplacer(int dx, int dy) : void
+    +contient(Point p) : boolean
+    +dessiner(Graphics g) : void
+}
+
+interface IMouseListener {
+    +mouseClicked(MouseEvent e) : void
+    +mousePressed(MouseEvent e) : void
+    +mouseReleased(MouseEvent e) : void
+    +mouseEntered(MouseEvent e) : void
+    +mouseExited(MouseEvent e) : void
+}
+
+interface IMouseMotionListener {
+    +mouseDragged(MouseEvent e) : void
+    +mouseMoved(MouseEvent e) : void
+}
+
+DessinDisqueApp -> DessinDisqueFrame : « crée »
+DessinDisqueFrame --> DessinPanel : « contient »
+DessinPanel --> Disque : « gère plusieurs »
+DessinPanel --> IMouseListener : « implémente »
+DessinPanel --> IMouseMotionListener : « implémente »
+
+@enduml
