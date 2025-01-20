@@ -1,9 +1,21 @@
+/**
+ * @author Lestiboudois Maxime & Parisod Nathan
+ * @date 20/01/2025
+ */
+
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe représentant la fenêtre principale de l'application.
+ * Contient le panneau de dessin et les boutons "Clear" et "Quit".
+ */
 class DessinDisqueFrame extends JFrame {
     private final DessinPanel dessinPanel;
-
+    /**
+     * Constructeur de la fenêtre principale.
+     * Initialise les composants graphiques et configure la disposition.
+     */
     public DessinDisqueFrame() {
         setTitle("Application de Dessin de Disques");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

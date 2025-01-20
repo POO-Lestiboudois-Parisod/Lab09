@@ -1,8 +1,9 @@
+/**
+ * @author Lestiboudois Maxime & Parisod Nathan
+ * @date 20/01/2025
+ */
+
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.util.LinkedList;
-import java.util.ListIterator;
 
 public class DessinDisqueApp {
     public static void main(String[] args) {
